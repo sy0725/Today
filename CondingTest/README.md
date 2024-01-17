@@ -1,0 +1,239 @@
+# 코딩테스트
+
+## 자료구조의 종류
+
+자료구조 ?
+
+- 메모리를 효율적으로 사용하며 빠르고 안정적으로 데이터를 처리하는 것이 목표이고 상황에 따라 유용하게 사용될 수있도록 특정 구조를 이루고 있다.
+  ![Alt text](image.png)
+
+  결국 자료구조는 일차원적인 컴퓨터 메모리를 현실에 대응되도록 구조를 만든 것
+
+![Alt text](image-1.png)
+자료 구조는 크게 3가지로 나뉜다.
+
+### 선형구조
+
+한 원소 뒤에 하나의 원소만이 존재하는 형태로 자료들이 선형으로 나열되어 있는 구조
+
+선형 구조에 해당되는 자료 구조는 `배열, 연결리스트 , 스택, 큐` 가 있다.
+![Alt text](image-2.png)
+
+### 비선형구조
+
+원소 간 다대다 관계를 가지는 구조로 계층적 구조나 망형 구조를 표현하기에 적절한 구조
+비션형 구조에 해당되는 자료구조는 `트리, 그래프` 가 있다.
+![Alt text](image-3.png)
+
+### 완벽한 자료구조는 없다.
+
+특정 상황에 유용한 자료구조가 있을뿐 상황에 맞게 선택해서 문제를 풀면 된다.
+
+## 빅오표기법 (Big-O notation)
+
+시간복잡도를 알아내기위한 한가지 방법
+
+2가지만 기억하자
+
+### 상수항은 무시
+
+```js
+// 개수 법칙에 의해 개수는 무시된다.
+// 그렇기에 O(n + m) 으로 표기된다.
+for (let i = 0; i < n * 6; i += 1) {
+  // ...
+}
+
+for (let i = 0; i < m * 3; i += 1) {
+  /// ...
+}
+```
+
+### 가장 큰 항 외엔 무시
+
+```js
+// O(n^2 + n) 이지만 작은 항은 무시
+// O(n^2) 로만 표기해도 된다.
+
+for (let i = 0; i < n; i += 1) {
+  // ...
+}
+
+for (let i = 0; i < n; i += 1) {
+  for (let j = 0; j < n; j += 1) {
+    // ...
+  }
+}
+```
+
+## 자바스크립트의 9가지 트릭
+
+1. 구조 분해 할당을 이용한 변수 swap
+
+ES6 구조 분해 할당을 사용하여 두 변수를 swap 가능
+
+```js
+let a = 10,
+  b = 50;
+[a, b] = [b, a];
+console.log(a, b); // 50, 10
+```
+
+2. 배열 생성으로 루프 제거하기
+
+보통 단순히 범위 루프를 돌고 싶다면 아래 코드 처럼 작성
+
+```js
+let sum = 0;
+for (let i = 5; i < 10; i += 1) {
+  sum += i;
+}
+```
+
+범위 루프를 함수형 프로그래밍 방식으로 사용하고 싶다면 배열을 생성해서 사용이 가능하다.
+
+```js
+const sum = Array.from(new Array(5), (_, k) => k + 5).reduce(
+  (acc, cur) => acc + cur,
+  0
+);
+```
+
+3. 배열 내 같은 요소 제거
+
+`set` 이용 가능
+
+```js
+const names = ["Lee", "Kim", "Park", "Lee", "Kim"];
+const uniqueNamesWithArrayFrom = Array.from(new Set(names));
+const uniqueNamesWithSpread = [...new Set(names)];
+```
+
+4. Spread 연산자를 이용한 객체 병합
+
+두 객체를 별도 변수에 합치기 가능하다.
+
+```js
+const person = {
+  name: "Jeon Sun-Yong",
+  familyName: "Jeon",
+  givenName: "Sun-Yong",
+};
+
+const company = {
+  name: "Good Company",
+  address: "Good Address",
+};
+
+const jeonSunYong = { ...person, ...company };
+console.log(jeonSunYong); // {name: 'Good Company', familyName: 'Jeon', givenName: 'Sun-Yong', address: 'Good Address'}  // 같은 키는 마지막에 대입된 값으로 정해짐, 즉 , person.name 이 있는데 company.name 이 나중에 대입되었기에 company.name이 대입
+```
+
+5. `&&(AND 연산자)` , `||(OR 연산자)` 활용
+
+&& , || 은 조건문 외에도 사용이 가능하다.
+
+```js
+// || - 기본값을 넣어주고 싶을때 사용 가능
+// participantName이 0, undefined, 빈 문자열, null일 경우 'Guest'로 할당
+
+const name = participantName이 || "Guest";
+
+// &&
+// flag가 true 일 경우에 실행
+flag && func();
+
+// 객체 병합 가능
+
+const makeCompany = (showAddress) => {
+  return {
+    name: "Good Company",
+    ...(showAdress && { address: "Seoul" }),
+  };
+};
+```
+
+6. 구조 분해 할당 사용
+
+객체에서 필요한 것만 꺼내 쓰기가 유용하다.
+
+```js
+const person = {
+    name: 'Jeon Sun-Yong',
+    familyName: 'Jeon',
+    givenName: 'Sun-Yong'
+    company: 'Good Company',
+    address: 'Seoul',
+}
+
+const { familyName, givenName } = person;
+
+// shorthand property 사용 가능
+
+const name = 'Jeon Sun-Yong'
+const company = 'Good Company'
+
+const person = {
+  name,
+  company
+}
+
+console.log(person) // { name : 'Jeon Sun-Yong', company : 'Good Company'}
+```
+
+7. 비구조화 할당 사용하기
+
+함수에 객체를 넘길 경우 필요한 것만 꺼내 쓸 수 있다.
+
+```js
+const makeCompany = ({ name, address, serviceName }) => {
+  return {
+    name,
+    address,
+    serviceName,
+  };
+};
+
+const cobalt = makeCompany({
+  name: "Good Company",
+  address: "Seoul",
+  serviceName: "Travel",
+});
+```
+
+8. 동적 속성 이름
+
+객체의 키를 동적으로 생성이 가능하다.
+
+```js
+const nameKey = "name";
+const emailKey = "email";
+
+const person = {
+  [nameKey]: "Jeon Sun Yong",
+  [emailKey]: "sunyong0725@naver.com",
+};
+```
+
+9. !! 연산자를 사용하여 boolean 값으로 바꾸기
+
+`!! 연산자` 를 사용하여 `0, null, 빈 문자열, undefined, NaN` 을 false로 그 외에는 true 로 변경이 가능
+
+```js
+function check(variable) {
+  if (!!variable) {
+    console.log(variable);
+  } else {
+    console.log("잘못된 값");
+  }
+}
+
+check(null); // 잘못된 값
+check(3.14); // 3.14
+check(undefined); // 잘못된 값
+check(0); // 잘못된 값
+check("Good"); // Good
+check(""); // 잘못된 값
+check(NaN); // 잘못된 값
+check(5); // 5
+```
