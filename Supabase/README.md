@@ -11,7 +11,7 @@ created_at : 우리가 특별히 언급되지 않으면 현재시간으로 생�
 supabase가 좋은 이유는 AI와 강하게 이어져있다.
 
 언어를 이용해서 표를 추가하고 행을 추가하고싶으면 `SQL Editor` 을 누르면 된다.
-![Alt text](image.png)
+![Alt text](/Supabase/assets/image.png)
 
 SQL 문을 만들어준다.
 맘에 든다면 Accept Chandge
@@ -23,7 +23,7 @@ SQL 문을 만들어준다.
 [https://supabase.com/docs/reference/javascript/typescript-support](타입스크립트설치)
 
 정보는 API Docs에 있다.
-![Alt text](image-1.png)
+![Alt text](/Supabase/assets/image-1.png)
 
 초기화할땐 : introduction
 
@@ -42,11 +42,11 @@ key 같은 경우는 비어있다. 어디서 찾을 수 있냐 setting에 들어
 id 가 history 인것을 넣어야하ㅣㄹ텐데 이때 가져오는 코드가 필요한데
 API Docs에 해당 테이블 이름에 들어가면 코드가 적혀있다.
 
-![Alt text](image-2.png)
+![Alt text](/Supabase/assets/image-2.png)
 
 조금 아래로 내리면 해당 row들을 가지고 오늘 코드가 있다
 
-![Alt text](image-3.png)
+![Alt text](/Supabase/assets/image-3.png)
 
 ```ts
 let { data: page, error } = await supabase.from("page").select("*");
