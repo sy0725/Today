@@ -16,3 +16,5 @@ console.log(B);
 
 // const는 중복 선언 불가, 재할당도 불가
 const C = "DANJI";
+
+console.log(C);
