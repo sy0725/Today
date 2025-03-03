@@ -51,3 +51,11 @@
 
 - Event Listener
   - 이벤트가 발생했을 때 어떠한 액션을 위한 함수의 호출을 `이벤트 리스너` 라고 한다.
+
+## Event Bubbling
+
+- 이벤트 버블링이란 가장 깊게 중첩된 요소에 이벤트가 발생 했을 때 이벤트가 위로 전달되는것을 의미
+  - 맨 아래에서 실행되면 아래에서 위로 간다.
+    ![alt text](image.png)
+    ![alt text](image-1.png)
+- 코드에서는 p , div , form 순으로 alert가 나온다.
