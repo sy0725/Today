@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Event Delegation</title>
+    <meta charset="UTF-8" />
+  </head>
+
+  <body>
+    <div id="buttons">
+      <button class="buttonClass">Click me</button>
+      <button class="buttonClass">Click me</button>
+    </div>
+    <script>
+      // const buttons = document.getElementsByClassName("buttonClass");
+
+      // for (const button of buttons) {
+      //   button.addEventListener("click", () => alert("click"));
+      // }
+
+      const buttonList = document.querySelector("#buttons");
+      buttons.addEventListener("click", () => alert("clicked"));
+      const button = document.createElement("button");
+      button.getAttribute("class", "buttonClass");
+      button.innerText = "Click me";
+      buttonList.appendChild(button);
+    </script>
+  </body>
+</html>
