@@ -46,3 +46,8 @@
 - parentNode.replaceChild(newChild, oldChild)
   - 원래 있는 Child 삭제 후 새 Child로 교체
   - 교체할 때는 교체할 노드를 자식으로 가진 부모 노드에서 실행
+
+## DOM Event
+
+- Event Listener
+  - 이벤트가 발생했을 때 어떠한 액션을 위한 함수의 호출을 `이벤트 리스너` 라고 한다.
