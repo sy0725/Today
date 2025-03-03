@@ -10,3 +10,39 @@
 
 - DOM 트리를 DOM에서 제공해주는 API를 이용해서 조작할 수 있다.
 - API 를 이용해서 DOM 구조에 접근하거나 원하는 요소(Element)를 수정하거나 없애거나 할 수 있다.
+
+## DOM 탐색하기
+
+- 자식 노드 : 바로 아래의 자식 요소를 나타낸다
+- 후손 노드 : 중첩 관계에 있는 모든 요소를 의미, 자식 노드와 그 보다 자식 노드 모두가 후손 노드가 된다.
+- 모든 노드에 적용 가능한 탐색 프로퍼티
+  - parentNode, childNodes, firstChild, lastChild, previousSibling, nextSibling
+- 요소 노드에만 적용 가능한 탐색 프로퍼티
+  - parentElement, children, firstElementChild, lastElementChild, previousElementSibling, nextElementSibling
+
+## DOM 컬렉션
+
+- childNodes 마치 배열 같아 보이지만 childNodes는 배열이 아닌 반복 가능한(iterable) 유사 배열 객첵인 컬렉션
+  <img src="./navigation/image.png">
+
+- childNodes 가 컬렉션이기에 가능한 특징
+  - `for .. of` 사용 가능 (`for .. in` 은 사용 불가) 비록 배열은 아니지만 `forEach(), for..of` 도 사용 가능
+    - for of => 배열 순환할 때 사용
+    - for in => 객체 순환할 때 사용
+  - 배열이 아니기에 배열 메소드 사용 불가
+
+## 요소 생성하기
+
+- document.createElement(tagName)
+  - createElement 메서드에 태그 이름을 넣어서 요소 생성
+
+## 요소 삭제, 교체
+
+- parentNode.removeChild(node)
+
+  - 하나의 노드를 삭제
+  - 삭제할 때는 삭제할 노드를 자식으로 가진 부모 노드에서 실행
+
+- parentNode.replaceChild(newChild, oldChild)
+  - 원래 있는 Child 삭제 후 새 Child로 교체
+  - 교체할 때는 교체할 노드를 자식으로 가진 부모 노드에서 실행

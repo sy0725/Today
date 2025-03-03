@@ -31,5 +31,5 @@ lists.forEach((list, index) => {
   list.textContent = `${index}.list`;
 });
 
-const liOdd = document.getSelectorAll("li:nth-child(odd)");
+const liOdd = document.getSelectorAll("li:nth-child(odd)as");
 console.log(liOdd);
